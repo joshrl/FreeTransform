@@ -25,7 +25,7 @@
     UILabel *contentView = [[UILabel alloc] init];
     contentView.backgroundColor = [UIColor greenColor];
     
-    
+    //IMPORTANT: quad transform only works as expected when anchor point is (0,0)
     contentView.layer.anchorPoint = CGPointZero;
     contentView.text = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ullamcorper nulla metus, ac ultrices neque ultrices et. Vestibulum cursus vehicula justo ac vestibulum. Pellentesque tortor nisl, malesuada quis commodo vel, blandit ac velit. Fusce venenatis quam ut lacus dapibus pellentesque vel ut nibh. In ac ipsum et lorem sodales sollicitudin. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis posuere turpis vitae dui vehicula rhoncus";
     contentView.numberOfLines=0;
@@ -37,10 +37,11 @@
     [self.view addSubview:contentView];
     
     
-    CGPoint tl = CGPointMake(120/2.,258/2.);
-    CGPoint tr = CGPointMake(524/2.,150/2.);
-    CGPoint bl = CGPointMake(114/2.,584/2.);
-    CGPoint br = CGPointMake(529/2.,556/2.);
+    //set some arbitrary control points (doesn't work well with convex shapes)
+    CGPoint tl = CGPointMake(60,129);
+    CGPoint tr = CGPointMake(262,75);
+    CGPoint bl = CGPointMake(57,292);
+    CGPoint br = CGPointMake(265,278);
     
     
     self.topLeftControl = [self addControl:tl];
@@ -48,7 +49,6 @@
     self.bottomLeftControl = [self addControl:bl];
     self.bottomRightControl = [self addControl:br];
     
-    //[self.contentView transformToFitQuadTopLeft:self.tl topRight:self.tr bottomLeft:self.bl bottomRight:self.br];
     [self updateTranform];
     
     
