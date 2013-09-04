@@ -37,7 +37,7 @@
     [self.view addSubview:contentView];
     
     
-    //set some arbitrary control points (doesn't work well with convex shapes)
+    //set some arbitrary control points (NOTE: doesn't work well with convex shapes)
     CGPoint tl = CGPointMake(60,129);
     CGPoint tr = CGPointMake(262,75);
     CGPoint bl = CGPointMake(57,292);
