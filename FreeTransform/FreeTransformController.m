@@ -65,17 +65,9 @@
     control.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:.5];
     [self.view addSubview:control];
     
-    
     UIPanGestureRecognizer *rec=[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(dragMarker:)];
     [control addGestureRecognizer:rec];
     return control;
-}
-
-- (void)viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
-    
-    
 }
 
 - (void)dragMarker:(UIPanGestureRecognizer *)recognizer
@@ -89,7 +81,6 @@
     view.center = newCenter;
     [recognizer setTranslation:CGPointZero inView:self.view];
     
-    //view.highlighted = recognizer.state == UIGestureRecognizerStateChanged;
     [self updateTranform];
 }
 
